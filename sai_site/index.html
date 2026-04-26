@@ -1,0 +1,230 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Happy Birthday, Sai 🌸</title>
+<link rel="icon" type="image/svg+xml" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>🌸</text></svg>">
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;1,400&family=Cormorant+Garamond:ital,wght@0,300;0,400;1,300;1,400&display=swap" rel="stylesheet">
+<style>
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+:root {
+  --rose: #c9726e; --blush: #f0cfc7; --cream: #fdf5ef;
+  --ink: #1e1210; --gold: #c9a96e; --mauve: #8b5e6e;
+}
+html { scroll-behavior: smooth; }
+body { background: var(--cream); color: var(--ink); font-family: 'Cormorant Garamond', serif; overflow-x: hidden; -webkit-font-smoothing: antialiased; }
+
+/* HERO */
+.hero { height: 100vh; position: relative; overflow: hidden; display: flex; align-items: flex-end; }
+.hero-img { position: absolute; inset: 0; }
+.hero-img img { width: 100%; height: 100%; object-fit: cover; object-position: center 20%; filter: brightness(0.65); transform: scale(1.06); animation: heroZoom 14s ease forwards; }
+@keyframes heroZoom { to { transform: scale(1); } }
+.hero-overlay { position: absolute; inset: 0; background: linear-gradient(to top, rgba(30,18,16,0.85) 0%, rgba(30,18,16,0.1) 55%, transparent 100%); }
+.hero-content { position: relative; z-index: 2; padding: 4rem 5rem; width: 100%; display: flex; justify-content: space-between; align-items: flex-end; }
+.hero-title { font-family: 'Playfair Display', serif; font-size: clamp(5rem, 13vw, 11rem); font-weight: 700; color: var(--cream); line-height: 0.88; font-style: italic; }
+.hero-title span { display: block; font-style: normal; font-size: 0.38em; letter-spacing: 0.18em; text-transform: uppercase; color: var(--gold); margin-bottom: 0.6em; }
+.hero-title em { font-size: 0.6em; color: var(--rose); font-style: normal; vertical-align: middle; line-height: 1; }
+.hero-aside { text-align: right; max-width: 280px; }
+.hero-aside p { font-size: 1rem; line-height: 1.9; color: rgba(255,255,255,0.65); font-style: italic; }
+
+/* PETALS */
+.petal { position: fixed; pointer-events: none; border-radius: 50% 0 50% 0; opacity: 0; animation: fall linear infinite; z-index: 999; }
+@keyframes fall { 0% { opacity:0; transform: translateY(-20px) rotate(0deg); } 8% { opacity:0.55; } 90% { opacity:0.25; } 100% { opacity:0; transform: translateY(100vh) rotate(540deg); } }
+
+/* VERSE */
+.verse { display: grid; grid-template-columns: 1fr 1fr; min-height: 85vh; }
+.verse.flip { direction: rtl; }
+.verse.flip > * { direction: ltr; }
+.verse-img { overflow: hidden; position: relative; background: var(--ink); }
+.verse-img img { width: 100%; height: 100%; object-fit: cover; object-position: center top; display: block; transition: transform 1.1s cubic-bezier(.25,.46,.45,.94); opacity: 0.92; }
+.verse:hover .verse-img img { transform: scale(1.05); }
+.verse-text { display: flex; flex-direction: column; justify-content: center; padding: 5rem 6rem; background: var(--cream); position: relative; }
+.verse-num { font-family: 'Playfair Display', serif; font-size: 6rem; font-weight: 700; color: var(--blush); line-height: 1; position: absolute; top: 2.5rem; right: 3rem; opacity: 0.45; user-select: none; }
+.verse-text p { font-size: clamp(1.15rem, 1.8vw, 1.55rem); line-height: 2.1; font-style: italic; font-weight: 300; color: var(--ink); max-width: 440px; }
+.verse-text p em { font-style: normal; color: var(--rose); border-bottom: 1px solid currentColor; padding-bottom: 1px; }
+
+/* STRIP */
+.strip { display: flex; gap: 4px; background: var(--ink); overflow-x: auto; scrollbar-width: none; -ms-overflow-style: none; }
+.strip::-webkit-scrollbar { display: none; }
+.strip-item { flex: 0 0 auto; height: 420px; width: 300px; overflow: hidden; }
+.strip-item.wide { width: 380px; }
+.strip-item img { width: 100%; height: 100%; object-fit: cover; object-position: center top; display: block; transition: transform 0.7s ease, filter 0.7s ease; filter: sepia(10%) brightness(0.9); }
+.strip-item:hover img { transform: scale(1.06); filter: sepia(0%) brightness(1); }
+
+/* MOSAIC */
+.mosaic { display: grid; grid-template-columns: 1.4fr 1fr 1fr; grid-template-rows: 340px 340px; gap: 4px; background: var(--ink); }
+.mosaic-item { overflow: hidden; background: #2a1810; }
+.mosaic-item.tall { grid-row: span 2; }
+.mosaic-item img { width: 100%; height: 100%; object-fit: cover; object-position: center top; display: block; transition: transform 0.8s ease, filter 0.8s ease; filter: brightness(0.88); }
+.mosaic-item:hover img { transform: scale(1.06); filter: brightness(1); }
+.pos-face img { object-position: center 15% !important; }
+.pos-center img { object-position: center center !important; }
+.pos-mid img { object-position: center 35% !important; }
+
+/* FULL BLEED */
+.fullbleed { height: 75vh; overflow: hidden; position: relative; }
+.fullbleed img { width: 100%; height: 100%; object-fit: cover; object-position: center 15%; }
+.fullbleed-caption { position: absolute; bottom: 3rem; left: 5rem; font-family: 'Playfair Display', serif; font-size: clamp(1.3rem, 3vw, 2.2rem); color: var(--cream); font-style: italic; max-width: 550px; line-height: 1.6; text-shadow: 0 2px 20px rgba(0,0,0,0.5); }
+
+/* MOSAIC 2 */
+.mosaic2 { display: grid; grid-template-columns: 1fr 1fr 1.4fr; grid-template-rows: 340px 340px; gap: 4px; background: var(--ink); }
+
+/* FINAL */
+.final { background: var(--ink); text-align: center; padding: 9rem 3rem; position: relative; overflow: hidden; }
+.final::before { content: 'Sai'; position: absolute; font-family: 'Playfair Display', serif; font-size: 22vw; font-style: italic; color: rgba(255,255,255,0.02); top: 50%; left: 50%; transform: translate(-50%,-50%); pointer-events: none; white-space: nowrap; }
+.final p { font-family: 'Playfair Display', serif; font-size: clamp(1.3rem, 2.5vw, 2rem); color: var(--cream); font-style: italic; line-height: 2.3; max-width: 680px; margin: 0 auto; position: relative; }
+.final p em { color: var(--gold); font-style: normal; }
+.final-divider { width: 60px; height: 1px; background: var(--gold); margin: 3rem auto 0; }
+
+/* CLOSING */
+.closing { display: grid; grid-template-columns: 1fr 1fr; min-height: 80vh; }
+.closing-img { overflow: hidden; }
+.closing-img img { width: 100%; height: 100%; object-fit: cover; object-position: center 20%; filter: brightness(0.78); }
+.closing-text { background: var(--cream); display: flex; flex-direction: column; justify-content: center; padding: 6rem 5rem; gap: 1.5rem; }
+.closing-text h2 { font-family: 'Playfair Display', serif; font-size: clamp(2.2rem, 5vw, 4.5rem); font-weight: 700; font-style: italic; color: var(--rose); line-height: 1.1; }
+.closing-text p { font-size: clamp(1rem, 1.5vw, 1.3rem); font-style: italic; line-height: 1.9; color: var(--mauve); }
+.closing-text .sig { font-family: 'Playfair Display', serif; font-size: 1.1rem; color: var(--gold); letter-spacing: 0.15em; text-transform: uppercase; margin-top: 1rem; }
+
+/* FOOTER */
+footer { background: var(--ink); padding: 2rem 4rem; display: flex; justify-content: space-between; align-items: center; }
+footer span { font-size: 0.72rem; letter-spacing: 0.2em; text-transform: uppercase; color: rgba(255,255,255,0.25); }
+
+/* REVEAL */
+.reveal { opacity: 0; transform: translateY(35px); transition: opacity 1s ease, transform 1s ease; }
+.reveal.in { opacity: 1; transform: none; }
+
+@media (max-width: 768px) {
+  .hero-content { padding: 2.5rem; flex-direction: column; align-items: flex-start; gap: 1.5rem; }
+  .hero-aside { text-align: left; max-width: 100%; }
+  .verse, .verse.flip { grid-template-columns: 1fr; direction: ltr; }
+  .verse-img { height: 55vw; }
+  .verse-text { padding: 3rem 2rem; }
+  .verse-num { font-size: 4rem; }
+  .strip-item { height: 280px; width: 220px; }
+  .strip-item.wide { width: 280px; }
+  .mosaic { grid-template-columns: 1fr 1fr; grid-template-rows: auto; }
+  .mosaic-item.tall, .mosaic2 .mosaic-item.tall { grid-row: span 1; aspect-ratio: 4/5; height: auto; }
+  .mosaic2 { grid-template-columns: 1fr 1fr; }
+  .closing { grid-template-columns: 1fr; }
+  .closing-img { height: 60vw; }
+  .closing-text { padding: 3rem 2rem; }
+  footer { flex-direction: column; gap: 0.5rem; }
+}
+</style>
+</head>
+<body>
+
+<div id="petals-root"></div>
+
+<section class="hero">
+  <div class="hero-img"><img src="images/armenia.jpg" alt="Sai in Armenia"></div>
+  <div class="hero-overlay"></div>
+  <div class="hero-content">
+    <div class="hero-title">
+      <span>Happy Birthday</span>
+      Sai <em>♡</em>
+    </div>
+    <div class="hero-aside">
+      <p>A girl who has wandered through Roman streets and Armenian skies, who carries the world lightly and loves it deeply.</p>
+    </div>
+  </div>
+</section>
+
+<div class="verse reveal">
+  <div class="verse-img pos-face"><img src="images/menu_jp.jpg" alt="Sai reading menu"></div>
+  <div class="verse-text">
+    <span class="verse-num">01</span>
+    <p>You love <em>celery and jasmine's scent,</em><br>Pride and Prejudice, time so well spent,<br>A girl who dressed as Kung-fu Panda one night,<br>Who once thought Tanya wrote Jackson's delight.</p>
+  </div>
+</div>
+
+<div class="strip reveal">
+  <div class="strip-item wide"><img src="images/roses1.jpg" alt="Rose garden"></div>
+  <div class="strip-item"><img src="images/roses2.jpg" alt="Reaching for roses"></div>
+  <div class="strip-item"><img src="images/street_cafe.jpg" alt="Street cafe"></div>
+  <div class="strip-item"><img src="images/art_gall.jpg" alt="Art gallery street"></div>
+  <div class="strip-item"><img src="images/tartan.jpg" alt="Aperol tartan"></div>
+</div>
+
+<div class="verse flip reveal">
+  <div class="verse-img pos-face"><img src="images/reading.jpg" alt="Sai reading"></div>
+  <div class="verse-text">
+    <span class="verse-num">02</span>
+    <p>You've wandered through <em>Rome and Armenian skies,</em><br>Worked escape rooms and galleries, endlessly wise,<br>You paint with watercolors, soft, gentle, and true,<br>And read every fan fiction, cover right through.</p>
+  </div>
+</div>
+
+<div class="mosaic reveal">
+  <div class="mosaic-item tall pos-face"><img src="images/zebra.jpg" alt="Sai zebra dress"></div>
+  <div class="mosaic-item pos-face"><img src="images/dinner1.jpg" alt="Dinner"></div>
+  <div class="mosaic-item pos-face"><img src="images/dinner2.jpg" alt="Dinner laughing"></div>
+  <div class="mosaic-item pos-face"><img src="images/white_cap.jpg" alt="White cap"></div>
+  <div class="mosaic-item pos-face"><img src="images/fur_hat.jpg" alt="Fur hat"></div>
+</div>
+
+<div class="verse reveal">
+  <div class="verse-img pos-face"><img src="images/cafe_read.jpg" alt="Sai at cafe"></div>
+  <div class="verse-text">
+    <span class="verse-num">03</span>
+    <p>You're passionate, fiery, and <em>beautifully real,</em><br>You feel things so deeply — two or three days of feel,<br>You'll never step over a note on the ground,<br>And sad movies? You avoid them — we all know why now.</p>
+  </div>
+</div>
+
+<div class="fullbleed reveal">
+  <img src="images/venus.jpg" alt="Sai editorial">
+  <div class="fullbleed-caption">So here's to you, Sai,<br>on your special day —<br>may jasmine surround you in the loveliest way.</div>
+</div>
+
+<div class="strip reveal">
+  <div class="strip-item"><img src="images/kitten_st.jpg" alt="Holding kitten"></div>
+  <div class="strip-item"><img src="images/cat_head.jpg" alt="Cat on head"></div>
+  <div class="strip-item wide"><img src="images/elephant.jpg" alt="Giant elephant toy"></div>
+  <div class="strip-item"><img src="images/denim.jpg" alt="Denim outfit"></div>
+  <div class="strip-item"><img src="images/desk.jpg" alt="At desk"></div>
+</div>
+
+<div class="mosaic2 reveal">
+  <div class="mosaic-item pos-face"><img src="images/tf_glass.jpg" alt="Tom Ford glasses"></div>
+  <div class="mosaic-item pos-mid"><img src="images/room_cat.jpg" alt="Room with cat"></div>
+  <div class="mosaic-item tall pos-face"><img src="images/denim.jpg" alt="Denim full body"></div>
+  <div class="mosaic-item pos-face"><img src="images/tartan.jpg" alt="Tartan dress"></div>
+  <div class="mosaic-item pos-center"><img src="images/fur_hat.jpg" alt="Fur hat"></div>
+</div>
+
+<div class="final reveal">
+  <p>No cinnamon, no cucumbers, no banana-PB —<br>just <em>love, warmth, and wonder,</em> from me. 🌻</p>
+  <div class="final-divider"></div>
+</div>
+
+<div class="closing reveal">
+  <div class="closing-img"><img src="images/cat_head.jpg" alt="Sai smiling with cat"></div>
+  <div class="closing-text">
+    <h2>Happy Birthday,<br>beautiful.</h2>
+    <p>May this year be as radiant as you are.<br>May every day feel a little like those rose gardens.<br>May you always trust your watercolors.</p>
+    <span class="sig">With all my love ♡</span>
+  </div>
+</div>
+
+<footer>
+  <span>For Sai — with love</span>
+  <span>Happy Birthday 🌸</span>
+</footer>
+
+<script>
+  const root = document.getElementById('petals-root');
+  const colors = ['#c9726e','#f0cfc7','#c9a96e','#8b5e6e','#e8b4b0'];
+  for (let i = 0; i < 22; i++) {
+    const p = document.createElement('div');
+    p.className = 'petal';
+    const size = Math.random() * 7 + 4;
+    p.style.cssText = `left:${Math.random()*100}%;width:${size}px;height:${size}px;background:${colors[Math.floor(Math.random()*colors.length)]};animation-duration:${Math.random()*9+7}s;animation-delay:${Math.random()*12}s;opacity:0;`;
+    root.appendChild(p);
+  }
+  const io = new IntersectionObserver(entries => {
+    entries.forEach(e => { if (e.isIntersecting) e.target.classList.add('in'); });
+  }, { threshold: 0.08 });
+  document.querySelectorAll('.reveal').forEach(el => io.observe(el));
+</script>
+</body>
+</html>
